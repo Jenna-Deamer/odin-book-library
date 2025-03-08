@@ -1,3 +1,4 @@
+const BOOKCONTAINER = document.querySelector('#book-container');
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -15,3 +16,11 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook)
     console.log(myLibrary)
 }
+
+function displayAllBooks(){
+    for(let i = 0; i < myLibrary.length; i++){
+     
+    }
+}
+
+displayAllBooks()

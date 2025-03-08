@@ -1,28 +1,70 @@
-*{
-    padding: unset;
-    margin: unset;
-    box-sizing: border-box;
+* {
+  padding: unset;
+  margin: unset;
+  box-sizing: border-box;
 }
 
-body{
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*Inherit fonts for form controls*/
-input, button, textarea, select {
-    font: inherit;
-  }
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
 
-  /* Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /* Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#book-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px dashed black;
+  gap: 2rem;
+  padding: 0 4rem;
+
+}
+
+.book-card {
+  outline: 1px solid red;
+  background-color: #ccc;
+}
+
+.book-card h3 {
+  text-align: center;
+}
+
+.book-card-body {
+  padding: .5em 1em;
+}
