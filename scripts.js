@@ -1,4 +1,4 @@
-const BOOKCONTAINER = document.querySelector('#book-container');
+const BOOKCONTAINER = document.querySelector("#book-container");
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -6,21 +6,35 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.isRead = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary(title, author, pages, isRead) {
     // create book
-    let newBook = new Book(title, author, pages, read)
+    let newBook = new Book(title, author, pages, isRead);
     // store in array
-    myLibrary.push(newBook)
-    console.log(myLibrary)
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+    return myLibrary;
 }
 
-function displayAllBooks(){
-    for(let i = 0; i < myLibrary.length; i++){
-     
+function displayAllBooks() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        // create a div & give it a class for every item in array
+        const bookCard = document.createElement("div");
+        bookCard.classList.add(".book-card");
+
+        // define book-card content
+        const content = `
+       <h3>${myLibrary[i].title}</h3>
+       <p>By: ${myLibrary[i].author}</p>
+       <p>Pages: ${myLibrary[i].pages}</p>
+       <p>Read: ${myLibrary[i].isRead}</p>
+      `;
+
+        // add bookCard to container
+        BOOKCONTAINER.innerHTML += content;
     }
 }
 
-displayAllBooks()
+displayAllBooks();
