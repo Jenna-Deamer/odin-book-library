@@ -2,6 +2,7 @@ const bookContainer = document.querySelector("#book-container");
 const dialog = document.querySelector("#add-book-modal")
 const showButton = document.querySelector("dialog + button");
 const  closeButton = document.querySelector("dialog button");
+const form = document.querySelector('form')
 
 const myLibrary = [];
 
@@ -45,12 +46,17 @@ function displayAllBooks() {
   }
 }
 
-// Add Book Modal
-
+// New Book Modal
 showButton.addEventListener("click", () =>{
     dialog.showModal();
 });
 
 closeButton.addEventListener("click", () =>{
     dialog.close();
+});
+
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+
 });
