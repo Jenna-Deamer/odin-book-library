@@ -58,6 +58,7 @@ h1 {
 
 .book-card {
   outline: 1px solid red;
+  width: 120px;
   background-color: #ccc;
 }
 
