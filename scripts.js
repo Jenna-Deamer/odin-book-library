@@ -1,4 +1,8 @@
-const BOOKCONTAINER = document.querySelector("#book-container");
+const bookContainer = document.querySelector("#book-container");
+const dialog = document.querySelector("#add-book-modal")
+const showButton = document.querySelector("dialog + button");
+const  closeButton = document.querySelector("dialog button");
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -37,8 +41,16 @@ function displayAllBooks() {
       `;
 
     // add bookCard to container
-    BOOKCONTAINER.innerHTML += content;
+    bookContainer.innerHTML += content;
   }
 }
 
-displayAllBooks();
+// Add Book Modal
+
+showButton.addEventListener("click", () =>{
+    dialog.showModal();
+});
+
+closeButton.addEventListener("click", () =>{
+    dialog.close();
+});

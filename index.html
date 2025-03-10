@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,43 @@
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
+
 <body>
+    <dialog id="add-book-modal">
+        <button>X</button>
+        <h2>Add a Book</h2>
+        <form>
+      <fieldset>
+                <label for="title">Title:</label>
+                <input type="text" id="title" form="title">
+
+                <label for="title">Author:</label>
+                <input type="text" id="author" form="author">
+            </fieldset>
+            <fieldset>
+                <label for="pages">Number of Pages:</label>
+                <input type="number" id="pages" form="pages" min="1" value="1">
+
+                <label for="is_read">Finished:</label>
+                <input type="radio" id="is_read" name="is_read" value="yes">
+                <label for="is_read">Yes</label>
+         
+                <input type="radio" id="is_read" name="is_read" value="no" checked>
+                <label for="is_read">No</label>
+            </fieldset>
+     
+            <button type="submit">Submit</button>
+        </form>
+    </dialog>
+    <button>New Book</button>
     <main>
         <h1>My Library</h1>
         <section id="book-container">
-   
+
         </section>
+
+      
     </main>
 </body>
+
 </html>
