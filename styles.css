@@ -70,3 +70,7 @@ h1 {
   padding: .5em 1em;
 }
 
+
+#info-label{
+  font-weight: 600;
+}
