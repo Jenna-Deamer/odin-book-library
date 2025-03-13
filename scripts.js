@@ -69,7 +69,7 @@ form.addEventListener("submit", function (event) {
     infoLabel.innerHTML = "Please fill out all fields!";
   } else {
     title = titleField.value;
-    author = pagesField.value;
+    author = authorField.value;
     pages = pagesField.value;
     isRead = isReadField.value;
 
