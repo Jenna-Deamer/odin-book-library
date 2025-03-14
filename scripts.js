@@ -35,22 +35,35 @@ function displayAllBooks() {
 
     // define book-card content
     const content = `
-            <div class="book-card">
+            <div class="book-card"
+            data-id=${myLibrary[i].id}>
         <div class="book-card-body">
             <h3>${myLibrary[i].title}</h3>
             <p>By: ${myLibrary[i].author}</p>
             <p>Pages: ${myLibrary[i].pages}</p>
         </div>
         <div class="button-container">
-         <button id="read-btn">Read</button>
-        <button id="remove-btn">X</button>
+         <button class="read-btn">Read</button>
+        <button class="delete-btn">X</button>
         </div>
     </div>   
       `;
 
     // add bookCard to container
     bookContainer.innerHTML += content;
+
+     // attach event listeners to all book delete buttons
+     const deleteButtons = document.querySelectorAll(".delete-btn")
+    deleteButtons.forEach(button =>{
+        button.addEventListener("click", (event) => {
+            console.log("Clicked Something!")
+            
+        })
+    })
+     
   }
+
+
 }
 
 // New Book Modal
@@ -69,16 +82,17 @@ form.addEventListener("submit", function (event) {
   if (!titleField.value || !authorField.value) {
     infoLabel.style.color = "#c73126";
     infoLabel.innerHTML = "Please fill out all fields!";
-
   } else {
     // Get checked radio every time submit event happens
-    const isReadCheckedRadio = document.querySelector('input[name = "is_read"]:checked')
+    const isReadCheckedRadio = document.querySelector(
+      'input[name = "is_read"]:checked'
+    );
 
     title = titleField.value;
     author = authorField.value;
     pages = pagesField.value;
     isRead = isReadCheckedRadio.value;
-    
+
     addBookToLibrary(title, author, pages, isRead);
     // reset container
     bookContainer.innerHTML = "";
@@ -90,3 +104,6 @@ form.addEventListener("submit", function (event) {
     infoLabel.style.color = "#47820e";
   }
 });
+
+
+

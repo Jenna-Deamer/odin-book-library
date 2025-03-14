@@ -85,7 +85,7 @@ h1 {
     color: #fff;
 }
 
-#remove-btn {
+.delete-btn {
     border-radius: 100%;
     width: 30px;
     height: 30px;
@@ -97,17 +97,17 @@ h1 {
     align-items: center;
 }
 
-#read-btn {
+.read-btn {
     width: 100px;
     background-color: rgb(55, 129, 55);
     border-radius: 4px;
 }
 
-#read-btn:hover {
+.read-btn:hover {
     background-color: rgb(53, 158, 53);
 }
 
-#remove-btn:hover {
+.delete-btn:hover {
     background-color: rgb(209, 14, 14);
 }
 
