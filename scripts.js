@@ -40,7 +40,10 @@ function displayAllBooks() {
             <h3>${myLibrary[i].title}</h3>
             <p>By: ${myLibrary[i].author}</p>
             <p>Pages: ${myLibrary[i].pages}</p>
-            <p>Read: ${myLibrary[i].isRead}</p>
+        </div>
+        <div class="button-container">
+         <button id="read-btn">Read</button>
+        <button id="remove-btn">X</button>
         </div>
     </div>   
       `;

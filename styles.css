@@ -1,12 +1,12 @@
 * {
-  padding: unset;
-  margin: unset;
-  box-sizing: border-box;
+    padding: unset;
+    margin: unset;
+    box-sizing: border-box;
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
 /*Inherit fonts for form controls*/
@@ -14,7 +14,7 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
 
 /* Avoid text overflows */
@@ -25,12 +25,12 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Improve line wrapping */
 p {
-  text-wrap: pretty;
+    text-wrap: pretty;
 }
 
 h1,
@@ -39,38 +39,78 @@ h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance;
+    text-wrap: balance;
 }
 
 h1 {
-  text-align: center;
-  margin: 2rem 0;
+    text-align: center;
+    margin: 2rem 0;
 }
 
 #book-container {
-  display: flex;
-  flex-wrap: wrap;
-  border: 2px dashed black;
-  gap: 2rem;
-  padding: 0 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px dashed black;
+    gap: 2rem;
+    padding: 0 4rem;
 
 }
 
 .book-card {
-  outline: 1px solid red;
-  width: 120px;
-  background-color: #ccc;
+    outline: 1px solid red;
+    width: 140px;
+    background-color: #ccc;
+    padding: 8px 12px;
 }
 
 .book-card h3 {
-  text-align: center;
+    text-align: center;
 }
 
 .book-card-body {
-  padding: .5em 1em;
+    padding: .5em 1em;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
 
-#info-label{
-  font-weight: 600;
+.button-container button {
+    transition: .5s ease-in-out;
+    outline: unset;
+    border: unset;
+    color: #fff;
+}
+
+#remove-btn {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(154, 13, 13);
+    padding: 4px 8px;
+    /*Center "X"*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#read-btn {
+    width: 100px;
+    background-color: rgb(55, 129, 55);
+    border-radius: 4px;
+}
+
+#read-btn:hover {
+    background-color: rgb(53, 158, 53);
+}
+
+#remove-btn:hover {
+    background-color: rgb(209, 14, 14);
+}
+
+#info-label {
+    font-weight: 600;
 }
