@@ -7,7 +7,6 @@ const form = document.querySelector("form");
 const titleField = document.querySelector("#title");
 const authorField = document.querySelector("#author");
 const pagesField = document.querySelector("#pages");
-const isReadField = document.querySelector("#is_read");
 
 const myLibrary = [];
 
@@ -67,12 +66,16 @@ form.addEventListener("submit", function (event) {
   if (!titleField.value || !authorField.value) {
     infoLabel.style.color = "#c73126";
     infoLabel.innerHTML = "Please fill out all fields!";
+
   } else {
+    // Get checked radio every time submit event happens
+    const isReadCheckedRadio = document.querySelector('input[name = "is_read"]:checked')
+
     title = titleField.value;
     author = authorField.value;
     pages = pagesField.value;
-    isRead = isReadField.value;
-
+    isRead = isReadCheckedRadio.value;
+    
     addBookToLibrary(title, author, pages, isRead);
     // reset container
     bookContainer.innerHTML = "";
