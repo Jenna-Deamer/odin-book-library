@@ -32,11 +32,9 @@ function displayAllBooks() {
     // create a div & give it a class for every item in array
     const bookCard = document.createElement("div");
     bookCard.classList.add(".book-card");
-
     // define book-card content
     const content = `
-            <div class="book-card"
-            data-id=${myLibrary[i].id}>
+            <div class="book-card">
         <div class="book-card-body">
             <h3>${myLibrary[i].title}</h3>
             <p>By: ${myLibrary[i].author}</p>
@@ -44,26 +42,14 @@ function displayAllBooks() {
         </div>
         <div class="button-container">
          <button class="read-btn">Read</button>
-        <button class="delete-btn">X</button>
+        <button class="delete-btn" id=${myLibrary[i].id}">X</button>
         </div>
     </div>   
       `;
-
-    // add bookCard to container
     bookContainer.innerHTML += content;
-
-     // attach event listeners to all book delete buttons
-     const deleteButtons = document.querySelectorAll(".delete-btn")
-    deleteButtons.forEach(button =>{
-        button.addEventListener("click", (event) => {
-            console.log("Clicked Something!")
-            
-        })
-    })
-     
+    // Attach delete event listeners when bookContainer changes
+    deleteBook();
   }
-
-
 }
 
 // New Book Modal
@@ -105,5 +91,13 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-
+function deleteBook(){
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((button) =>{
+        button.addEventListener('click', (e) =>{
+        console.log("Book ID: " + e.target.id);
+        })
+       
+    })
+}
 
