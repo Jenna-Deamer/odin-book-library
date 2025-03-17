@@ -8,7 +8,7 @@ const titleField = document.querySelector("#title");
 const authorField = document.querySelector("#author");
 const pagesField = document.querySelector("#pages");
 
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
@@ -28,21 +28,23 @@ function addBookToLibrary(title, author, pages, isRead) {
 }
 
 function displayAllBooks() {
+  // reset container to prevent duplicates
+  bookContainer.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) {
     // create a div & give it a class for every item in array
     const bookCard = document.createElement("div");
     bookCard.classList.add(".book-card");
     // define book-card content
     const content = `
-            <div class="book-card">
+            <div class="book-card" >
         <div class="book-card-body">
             <h3>${myLibrary[i].title}</h3>
             <p>By: ${myLibrary[i].author}</p>
             <p>Pages: ${myLibrary[i].pages}</p>
         </div>
-        <div class="button-container">
+        <div class="button-container"  id=${myLibrary[i].id}>
          <button class="read-btn">Read</button>
-        <button class="delete-btn" id=${myLibrary[i].id}">X</button>
+        <button class="delete-btn">X</button>
         </div>
     </div>   
       `;
@@ -91,13 +93,17 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-function deleteBook(){
-    const deleteButtons = document.querySelectorAll(".delete-btn");
-    deleteButtons.forEach((button) =>{
-        button.addEventListener('click', (e) =>{
-        console.log("Book ID: " + e.target.id);
-        })
-       
-    })
+function deleteBook() {
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.parentNode.id;
+      console.log("Book ID: " + id);
+      // Find ID's index in myLibrary then splice it out
+      const index = myLibrary.findIndex((element) => element.id === id);
+      myLibrary.splice(index, 1);
+      // Update book container
+      displayAllBooks(myLibrary);
+    });
+  });
 }
-
