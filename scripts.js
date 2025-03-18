@@ -1,6 +1,6 @@
 const bookContainer = document.querySelector("#book-container");
 const dialog = document.querySelector("#add-book-modal");
-const showButton = document.querySelector("dialog + button");
+const showButton = document.querySelector("#modal-button");
 const closeButton = document.querySelector("dialog button");
 const infoLabel = document.querySelector("#info-label");
 const form = document.querySelector("form");
