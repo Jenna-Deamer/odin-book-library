@@ -126,3 +126,17 @@ button{
 #info-label {
     font-weight: 600;
 }
+
+#add-book-modal{
+    margin: auto;
+    padding: 1rem;
+}
+#close-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+#modal-button-container{
+    display: flex;
+    justify-content: end;
+}
