@@ -48,6 +48,8 @@ function displayAllBooks() {
         </div>
     </div>   
       `;
+      
+    bookContainer.innerHTML += content;
     // Attach delete event listeners when bookContainer changes
     deleteBook();
     Book.prototype.toggleReadStatus();
