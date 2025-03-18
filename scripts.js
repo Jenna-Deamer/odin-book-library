@@ -43,14 +43,14 @@ function displayAllBooks() {
             <p>Pages: ${myLibrary[i].pages}</p>
         </div>
         <div class="button-container"  id=${myLibrary[i].id}>
-         <button class="read-btn">Read</button>
+         <button class="read-btn"></button>
         <button class="delete-btn">X</button>
         </div>
     </div>   
       `;
-    bookContainer.innerHTML += content;
     // Attach delete event listeners when bookContainer changes
     deleteBook();
+    Book.prototype.toggleReadStatus();
   }
 }
 
@@ -106,4 +106,34 @@ function deleteBook() {
       displayAllBooks(myLibrary);
     });
   });
+}
+
+Book.prototype.toggleReadStatus = function(){
+    const readButtons = document.querySelectorAll(".read-btn");
+    readButtons.forEach((button) =>{
+        button.addEventListener("click",() =>{
+            const id = button.parentNode.id;
+            // get index of book to get read status
+            const index = myLibrary.findIndex((element) => element.id === id);
+            const book = myLibrary[index];
+            console.log("Read? ", book.isRead);
+            // Switch status
+            if(book.isRead === "Unread"){
+                book.isRead = "read"
+                button.innerHTML = "Read"
+                button.style.backgroundColor = "green";
+            }
+            else{
+                 book.isRead = "Unread"
+                 button.innerHTML = "Unread"
+                 button.style.backgroundColor = "red";
+            }
+            // Push updated book into array & update display
+            console.log("before push ", myLibrary)
+            myLibrary.push[book];
+            console.log("Now? ", book.isRead);
+            console.log(myLibrary)
+        });
+    })
+ 
 }
