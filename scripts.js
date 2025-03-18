@@ -34,6 +34,7 @@ function displayAllBooks() {
     // create a div & give it a class for every item in array
     const bookCard = document.createElement("div");
     bookCard.classList.add(".book-card");
+    const bookIndex = myLibrary[i];
     // define book-card content
     const content = `
             <div class="book-card" >
@@ -43,17 +44,37 @@ function displayAllBooks() {
             <p>Pages: ${myLibrary[i].pages}</p>
         </div>
         <div class="button-container"  id=${myLibrary[i].id}>
-         <button class="read-btn"></button>
+
         <button class="delete-btn">X</button>
         </div>
     </div>   
       `;
-      
+    //  <button class="read-btn">Read</button>
     bookContainer.innerHTML += content;
-    // Attach delete event listeners when bookContainer changes
-    deleteBook();
-    Book.prototype.toggleReadStatus();
   }
+   // Attach event listeners when bookContainer changes
+   deleteBook();
+  addReadButtons();
+}
+
+function addReadButtons() {
+    const buttonContainer = document.querySelectorAll(".button-container");
+    for(i = 0; i < buttonContainer.length; i++){
+        let readButton = document.createElement("button");
+        readButton.classList.add("read-btn");
+        let bookIndex = myLibrary[i];
+        console.log(readButton);
+            if (bookIndex.isRead === "Unread") {
+              readButton.textContent = "Unread";
+              readButton.style.backgroundColor = "red";
+            } else {
+              readButton.textContent = "Read";
+              readButton.style.backgroundColor = "green";
+            }
+          // Add read button to each button container
+          buttonContainer[i].appendChild(readButton);
+    }
+  Book.prototype.toggleReadStatus();
 }
 
 // New Book Modal
@@ -110,32 +131,30 @@ function deleteBook() {
   });
 }
 
-Book.prototype.toggleReadStatus = function(){
-    const readButtons = document.querySelectorAll(".read-btn");
-    readButtons.forEach((button) =>{
-        button.addEventListener("click",() =>{
-            const id = button.parentNode.id;
-            // get index of book to get read status
-            const index = myLibrary.findIndex((element) => element.id === id);
-            const book = myLibrary[index];
-            console.log("Read? ", book.isRead);
-            // Switch status
-            if(book.isRead === "Unread"){
-                book.isRead = "read"
-                button.innerHTML = "Read"
-                button.style.backgroundColor = "green";
-            }
-            else{
-                 book.isRead = "Unread"
-                 button.innerHTML = "Unread"
-                 button.style.backgroundColor = "red";
-            }
-            // Push updated book into array & update display
-            console.log("before push ", myLibrary)
-            myLibrary.push[book];
-            console.log("Now? ", book.isRead);
-            console.log(myLibrary)
-        });
-    })
- 
-}
+Book.prototype.toggleReadStatus = function () {
+  const readButtons = document.querySelectorAll(".read-btn");
+  readButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.parentNode.id;
+      // get index of book to get read status
+      const index = myLibrary.findIndex((element) => element.id === id);
+      const book = myLibrary[index];
+      console.log("Read? ", book.isRead);
+      // Switch status
+      if (book.isRead === "Unread") {
+        book.isRead = "read";
+        button.innerHTML = "Read";
+        button.style.backgroundColor = "green";
+      } else {
+        book.isRead = "Unread";
+        button.innerHTML = "Unread";
+        button.style.backgroundColor = "red";
+      }
+      // Push updated book into array & update display
+      console.log("before push ", myLibrary);
+      myLibrary.push[book];
+      console.log("Now? ", book.isRead);
+      console.log(myLibrary);
+    });
+  });
+};
