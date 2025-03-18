@@ -52,28 +52,28 @@ function displayAllBooks() {
     //  <button class="read-btn">Read</button>
     bookContainer.innerHTML += content;
   }
-   // Attach event listeners when bookContainer changes
-   deleteBook();
+  // Attach event listeners & read buttons when book container changes
+  deleteBook();
   addReadButtons();
 }
 
 function addReadButtons() {
-    const buttonContainer = document.querySelectorAll(".button-container");
-    for(i = 0; i < buttonContainer.length; i++){
-        let readButton = document.createElement("button");
-        readButton.classList.add("read-btn");
-        let bookIndex = myLibrary[i];
-        console.log(readButton);
-            if (bookIndex.isRead === "Unread") {
-              readButton.textContent = "Unread";
-              readButton.style.backgroundColor = "red";
-            } else {
-              readButton.textContent = "Read";
-              readButton.style.backgroundColor = "green";
-            }
-          // Add read button to each button container
-          buttonContainer[i].appendChild(readButton);
+  const buttonContainer = document.querySelectorAll(".button-container");
+  for (i = 0; i < buttonContainer.length; i++) {
+    let readButton = document.createElement("button");
+    readButton.classList.add("read-btn");
+    let bookIndex = myLibrary[i];
+    console.log(readButton);
+    if (bookIndex.isRead === "Unread") {
+      readButton.textContent = "Unread";
+      readButton.style.backgroundColor = "red";
+    } else {
+      readButton.textContent = "Read";
+      readButton.style.backgroundColor = "green";
     }
+    // Add read button to each button container
+    buttonContainer[i].appendChild(readButton);
+  }
   Book.prototype.toggleReadStatus();
 }
 
