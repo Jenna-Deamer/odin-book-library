@@ -18,11 +18,12 @@ function Book(title, author, pages, read) {
   this.isRead = read;
 }
 
-function addBookToLibrary(newBook) { // Passes new Book(props) in as newBook
-//   // create book
-//   let newBook = new Book(title, author, pages, isRead);
+function addBookToLibrary(newBook) {
+  // Passes new Book(props) in as newBook
+  //   // create book
+  //   let newBook = new Book(title, author, pages, isRead);
   // store in array
-  // Only need to push newBook no need to repeat book props 
+  // Only need to push newBook no need to repeat book props
   myLibrary.push(newBook);
 }
 
@@ -103,8 +104,8 @@ form.addEventListener("submit", function (event) {
     pages = pagesField.value;
     isRead = isReadCheckedRadio.value;
 
-    addBookToLibrary(new Book(title, author, pages, isRead)); 
-    // Create the new book in the function params to avoid typing out all the book props 
+    addBookToLibrary(new Book(title, author, pages, isRead));
+    // Create the new book in the function params to avoid typing out all the book props
     // reset container
     bookContainer.innerHTML = "";
     // re-add books + new one
@@ -119,9 +120,14 @@ form.addEventListener("submit", function (event) {
 function deleteBook() {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
       const id = button.parentNode.id;
       console.log("Book ID: " + id);
+      // This is how another student was able to target data-id
+      //   const bookId = event.target.getAttribute('data-id');
+      // They put data-id on both buttons though.
+      // To avoid repeating I could of used data-attr instead of ID on the container and target its atr
+
       // Find ID's index in myLibrary then splice it out
       const index = myLibrary.findIndex((element) => element.id === id);
       myLibrary.splice(index, 1);
