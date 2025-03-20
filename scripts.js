@@ -18,13 +18,12 @@ function Book(title, author, pages, read) {
   this.isRead = read;
 }
 
-function addBookToLibrary(title, author, pages, isRead) {
-  // create book
-  let newBook = new Book(title, author, pages, isRead);
+function addBookToLibrary(newBook) { // Passes new Book(props) in as newBook
+//   // create book
+//   let newBook = new Book(title, author, pages, isRead);
   // store in array
+  // Only need to push newBook no need to repeat book props 
   myLibrary.push(newBook);
-  console.log(myLibrary);
-  return myLibrary;
 }
 
 function displayAllBooks() {
@@ -104,7 +103,8 @@ form.addEventListener("submit", function (event) {
     pages = pagesField.value;
     isRead = isReadCheckedRadio.value;
 
-    addBookToLibrary(title, author, pages, isRead);
+    addBookToLibrary(new Book(title, author, pages, isRead)); 
+    // Create the new book in the function params to avoid typing out all the book props 
     // reset container
     bookContainer.innerHTML = "";
     // re-add books + new one
