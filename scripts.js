@@ -9,13 +9,16 @@ const authorField = document.querySelector("#author");
 const pagesField = document.querySelector("#pages");
 
 let myLibrary = [];
-
-function Book(title, author, pages, read) {
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = read;
+// (title, author, pages, read)
+class Book {
+  constructor(id, title, author, pages, isRead){
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+ 
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
